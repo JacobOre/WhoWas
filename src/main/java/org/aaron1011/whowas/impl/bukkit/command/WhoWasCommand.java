@@ -70,16 +70,16 @@ public class WhoWasCommand implements CommandExecutor {
             return true;
         }
 
-        sender.sendMessage(ChatColor.BLUE + "Name history:");
+        sender.sendMessage(ChatColor.BLUE + "Player" + player + "was previously:");
         if (history.getNames().size() == 1) {
             TimestampedName name = history.getNames().get(0);
-            sender.sendMessage(name.getName() + ": " + ChatColor.GOLD + "In use");
+            // sender.sendMessage(name.getName() + ": " + ChatColor.GOLD + "In use");
         } else {
             for (TimestampedName name : Lists.reverse(history.getNames())) {
                 StringBuilder builder = new StringBuilder(name.getName() + ": ");
 
                 if (name.getChangedToAt().isPresent()) {
-                    builder.append(ChatColor.GREEN + "Changed to at " + name.getChangedToAt().get().toString());
+                    builder.append(ChatColor.GREEN + "[" name.getChangedToAt().get().toString() + "] " + );
                 } else {
                     builder.append(ChatColor.GOLD + "First name");
                 }
